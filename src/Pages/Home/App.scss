@@ -46,3 +46,20 @@
     }
   }
 }
+
+
+@media screen and (max-width: 768px){
+    .pageDiv{
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        .overlay{
+            .headText{
+                h1{
+                    font-size: 1.5rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
