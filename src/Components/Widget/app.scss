@@ -1,0 +1,57 @@
+@import  "../../Styles/colors";
+@import "../../Styles/fonts";
+@import '../../Styles/reuseable';
+
+.widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: fit-content;
+
+    .content {
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+
+        .iconWrapper {
+            display: flex;
+            align-items: center;
+            background: $brandPrimary;
+            color: #fff;
+            font-size: 1rem;
+            padding: .5rem;
+            border-radius: 4px;
+        }
+
+        .textWrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: $gray;
+            padding: .4rem 1rem;
+            border-radius: 6px;
+            margin-left: 2rem;
+            @include Poppins(500, normal);
+            max-width: fit-content;
+
+            p {
+                font-size: 1rem;
+                margin: 0;
+                word-wrap: break-word;
+            }
+
+            #line {
+                position: absolute;
+                left: -1.4rem;
+                background: $gray;
+                width: 30px;
+                height: .2rem;
+                border-radius: 5rem;
+            }
+        }
+    }
+}
+

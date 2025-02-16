@@ -1,0 +1,143 @@
+@use  "../../Styles/colors" as *;
+@use  "../../Styles/fonts" as *;
+@use  "../../Styles/reuseable" as *;
+
+
+.loginCon{
+    @include flex(column, 1rem, center);
+    align-items: flex baseline;
+    text-align: center;
+    min-height: 100vh;
+
+    img{
+        width: 10rem;
+    }
+
+    .loginWrapper{
+        @include flex(column, 0, center);
+        h2{
+            @include League(700);
+            font-size: 32px;
+        }
+
+        p{
+            width: 60%;
+            text-align: center;
+            @include League(400);
+            margin-top: 1rem;
+        }
+
+        .loginLogs{
+            @include flex(column, .6rem, space-between);
+            margin-top: 20px;
+
+            p{
+                width: 100%;
+                text-align: left;
+            }
+
+            #log{
+                @include flex(row, .6rem, center);
+                align-items: center;
+                width: 300px;
+                border: 1px solid #0000005b;
+                border-radius: .2rem;
+                padding: .4rem .2rem;
+
+                input{
+                    width: 100%;
+                    height:100%; 
+                    padding: .4rem; 
+                    border: none;
+                    outline: none;
+                    @include League(600);
+                    font-size: 1rem;
+
+                    &::placeholder{
+                        @include League(500);
+                        font-size: 1rem;
+                    }
+                }
+
+                #passOption{
+                    @include flex(row, 1rem, space-between);
+                    align-items: center;
+                    #hide{
+                        display: none;
+                    }
+                }
+
+                #university{
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    @include League(500);
+                    font-size: 1rem;  
+                    padding: .4rem; 
+                }
+            }
+
+            .btnGreen{
+                background: $brandPrimaryLight1;
+                color: $light;
+                @include League(500);
+                border: none;
+                border-radius: 5px;
+                outline: none;
+                padding: .9rem 2rem;
+                width:  100%;
+                font-size: 1.1rem;
+                transition: .1s ease-in-out;
+
+                &:hover{
+                    background: $brandPrimary;
+                }
+            }
+
+            p{
+                margin-top: 1rem;
+                @include League(500);
+            }
+        }
+    }
+
+    .loginExtraWrapper{
+        @include flex(column, .8rem, space-between);
+        align-items: center;
+        width: 100%;
+
+        .loginExtraCard{
+            padding: .7rem;
+            @include flex(row, .2rem, flex-start);
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #0000005b;
+            width: 95%;
+            border-radius: 5px;
+
+            &:hover{
+                background: #9997975b;
+                border: 1px solid #8583835b;
+            }
+
+            h3{     
+             @include League(500);
+             font-size: 1.1rem;
+             margin: 0;
+            }
+
+            img{
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                margin: 0;
+            }
+        }
+    }
+
+    .extraLinks{
+        @include flex(row, 1rem, space-between);
+        @include League(500);
+        margin-bottom: 2rem;
+    }
+}

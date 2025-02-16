@@ -1,0 +1,35 @@
+@import "../../../Styles/colors";
+@import "../../../Styles/fonts";
+@import "../../../Styles/reuseable";
+
+.container {
+  @include flex(column, 0, center);
+  align-items: center;
+  @include Poppins(500, normal);
+  text-align: center;
+  height: 100vh;
+
+  .mailWrapper {
+    @include flex(row, 0, center);
+    align-items: center;
+    background-color: $brandPrimary;
+    color: #fff;
+    width: max-content;
+    padding: .8rem;
+    border-radius: 10rem;
+  }
+
+  p{
+    width: 30%;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .container{
+      p{
+        width: 90%;
+      }
+  }
+}
+
