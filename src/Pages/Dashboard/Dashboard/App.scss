@@ -1,0 +1,53 @@
+@use "../../../Styles/colors" as *;
+@use "../../../Styles/fonts" as *;
+@use "../../../Styles/reuseable" as *;
+
+
+
+.card{
+    background: #fff;
+    width: fit-content;
+    padding: 1.5rem 1rem;
+   
+    border-radius: .5rem;
+    border: 1px solid #e3e4e6;
+
+    #head{
+        color: #64748b;
+        font-size: .8rem;
+        @include Poppins(500, normal);
+    }
+
+    .body{
+        margin-top: .8rem;
+        @include Poppins(500, normal);
+    }
+}
+
+
+.overviewWrapper{
+    padding: 1rem;
+
+    #pageId{
+        @include Poppins(500, normal);
+        font-size: 1.2rem;
+    }
+
+    .earningsDiv, .secondDiv{
+        @include flex(row wrap, 1rem, flex-start);
+    }
+
+    .secondDiv{
+        margin-top: 2rem;
+    }
+}
+
+@media  (max-width: 768px){
+
+    .card{
+        width: 100%;
+    }
+    .earningsDiv, .secondDiv{
+        @include flex(column, 1rem, flex-start);
+    }
+}

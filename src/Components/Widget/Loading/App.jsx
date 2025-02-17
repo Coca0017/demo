@@ -5,7 +5,7 @@ import "./App.scss";
 function Spinner() {
   return (
     <div className='spinnerWrapper'>
-        <PuffLoader color="#094b88" /> 
+        <PuffLoader color="#e23c4a" /> 
     </div>
   )
 }

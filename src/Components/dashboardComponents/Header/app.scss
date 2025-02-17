@@ -1,0 +1,47 @@
+@import "../../../Styles/colors";
+@import "../../../Styles/fonts";
+@import "../../../Styles/reuseable";
+
+header{
+    @include flex(row, 0, center);
+    align-items: center;
+    width: 100%;
+    align-items: center;
+    padding: .7rem 0;
+    height: 3vh;
+    //margin: 0 1rem;
+
+    .headerWrapper{
+        width: 98%;
+        @include flex(row,'', space-between);
+
+        .logoCon{
+            img{
+                width: 110px ;
+            }
+        }
+    
+        .userDetails{
+            padding: 0;
+            margin: 0;
+
+           .nameDes{@include League(600);}
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    header{
+        .headerWrapper{
+            width: 93%;
+        }
+
+        .headerWrapper{               
+            .logoCon{
+                img{
+                    width: 100px ;
+                }
+            }
+        }
+    }
+}

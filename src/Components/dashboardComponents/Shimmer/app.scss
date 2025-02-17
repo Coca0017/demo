@@ -1,0 +1,51 @@
+
+.shimmer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px; // Adjust based on your card width
+    padding: 10px;
+    background: #f6f7f8;
+    border-radius: 10px; // Adjust based on your card border radius
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-thumbnail {
+    width: 100%;
+    height: 150px; // Adjust based on your thumbnail height
+    background: linear-gradient(90deg, #f6f7f8 25%, #edeef1 50%, #f6f7f8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 5px; // Adjust based on your thumbnail border radius
+  }
+  
+  .shimmer-line {
+    width: 80%;
+    height: 20px; // Adjust based on your text line height
+    background: linear-gradient(90deg, #f6f7f8 25%, #edeef1 50%, #f6f7f8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .shimmer-title {
+    width: 60%; // Adjust based on your title width
+  }
+  
+  .shimmer-category {
+    width: 40%; // Adjust based on your category width
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  

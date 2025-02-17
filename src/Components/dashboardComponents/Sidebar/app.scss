@@ -1,0 +1,94 @@
+// Sidebar.scss
+@import "../../../Styles/colors";
+@import "../../../Styles/fonts";
+@import "../../../Styles/reuseable";
+// Sidebar.scss
+
+.sideBarWrapper{
+  @include flex(column, 0, '');
+  align-items: start;
+  padding: 0 .9rem 0 .5rem;
+  height: 94vh;
+  margin: 0;
+  
+  .sidebar {
+    @include flex(column, 1rem, start);
+    align-items: start;
+    width: 11vw;
+    height: 100%;
+    
+    .sideLinks {
+      @include League(500);
+      text-decoration: none;
+      color: #000;
+    }
+  
+    .icon {
+      @include flex(row, 2px, start);
+      align-items: center;
+      padding: 9px;
+      cursor: pointer;
+      border-radius: 0.4rem;
+      transition: background-color 0.3s ease-in-out;
+  
+      &:hover {
+        background-color: #f0f0f0;
+      }
+  
+      .text {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        height: max-content;
+        padding: 3px;
+      }
+  
+      &.active {
+        background-color: $brandPrimaryLight1;
+        color: white;
+        border-radius: 0.4rem;
+
+        &:hover{
+            background: $brandPrimary;
+        }
+      }
+    }
+  }
+
+  .sideButton {
+    @include flex(row, 2px, start);
+    padding: 8px;
+    background: $brandPrimaryLight1;
+    color: #fff;
+    @include League(500);
+    outline: none;
+    border: none;
+    border-radius: .4rem;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover{
+      background: $brandPrimary;
+  }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .sideBarWrapper{
+    padding: 0 .2rem 0 .5rem;
+    .sidebar {
+      .icon{
+        .text {
+          display: none;
+        }
+      }
+    }
+
+    .logText{
+      display: none;
+    }
+  }
+}

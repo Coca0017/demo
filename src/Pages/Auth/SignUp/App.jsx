@@ -105,21 +105,21 @@ function Signup() {
 
 
        // Authenticate the user to avoid verification email error
-      // await login(registerEmail, registerPassword);
+      await login(registerEmail, registerPassword);
    
 
       try {
         //for development
        
-        //await account.createVerification('http://localhost:5173/Verify-email');
+        await account.createVerification('http://localhost:5173/Dashboard');
        
         //for production
-        await account.createVerification('https://edufied.online/Verify-email');
+        //await account.createVerification('https://edufied.online/Verify-email');
         toast.dismiss();
         toast.success("Account created successfully! Please wait..");
-        setTimeout(() => {
+       /** setTimeout(() => {
           navigate(`/CheckMail?userEmail=${registerEmail}`); 
-        }, 2400);
+        }, 2400); */
       } catch (error) {
         console.log(error);
         toast.error("Failed to send verification email. Please try again later.");
