@@ -18,6 +18,7 @@ function Signup() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerUsername, setRegisterUsername] = useState("");
+  const [refCode, setRefCode] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -99,7 +100,7 @@ function Signup() {
             DailyEarnings: 0,
             WithdrawalLimit: 0,
             TotalReferrals: 0,
-            ReferredBy: ''
+            ReferredBy: refCode
         }
     );
 
@@ -221,6 +222,20 @@ function Signup() {
                   <EyeOff />
                 </div>
               </div>
+
+              
+            </div>
+
+            <div id="log">
+              <input
+                type="text"
+                id="refCode"
+                placeholder="Referral Code (Optional)"
+                required
+                onChange={(event) => {
+                  setRefCode(event.target.value);
+                }}
+              />
             </div>
 
             <button

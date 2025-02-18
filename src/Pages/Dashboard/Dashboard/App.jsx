@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Layout from "../Layout";
 import Shimmer from "../../../Components/dashboardComponents/Shimmer/app";
 import Spinner from "../../../Components/Widget/Loading/App";
+import { Copy } from "lucide-react";
 
 
 function DashCard(props) {
@@ -39,12 +40,28 @@ function App() {
 
           <div className="secondDiv">
             <DashCard  Title={"Withdrawal limit"} Body={"2 times on weekdays"} />
-            <DashCard  Title={"Investment Plan"} Body={"Platinum"} />
+            <DashCard  Title={"Investment Plan"} Body={"None"} />
             <DashCard  Title={"Rank"} Body={"N/A"} />
           </div>
 
           <div className="marketingDiv">
+          <span id="pageId">Markerting</span>
 
+            <div className="marketingCard">
+              <h2 id="head">Referral Program</h2>
+
+              <p className="body">
+                Invite A Friend To Earn A Comission
+              </p>
+
+              <div className="linkCon">
+                <h1>
+                  https://www.coca-cola.com/?ref="Lucid"
+                </h1>
+
+                <Copy />
+              </div>
+            </div>
           </div>
         </div>
       </Layout>

@@ -40,6 +40,50 @@
     .secondDiv{
         margin-top: 2rem;
     }
+
+    .marketingDiv{
+        margin-top: 3rem;
+
+        .marketingCard{
+            background: #fff;
+            width: fit-content;
+            padding: 1.5rem 1rem;
+           
+            border-radius: .5rem;
+            border: 1px solid #e3e4e6;
+
+            #head{
+                color: #64748b;
+                font-size: .9rem;
+                @include Poppins(500, normal);
+            }
+        
+            .body{
+                margin-top: .8rem;
+                @include Poppins(500, normal);
+            }
+
+            .linkCon{
+                @include flex(row, 1rem, flex-start);
+                background: #fff;
+                width: 90%;
+                padding: .7rem;
+                border-radius: .5rem;
+                border: 1px solid #e3e4e6;
+
+                h1{
+                    font-size: .7rem;
+                    @include Poppins(500, normal);
+                }
+
+                svg{
+                    height: .8rem;
+                }
+            }
+
+
+        }
+    }
 }
 
 @media  (max-width: 768px){
