@@ -54,7 +54,7 @@ function Layout({ children }) {
     },
     {
       name: "Investment Plans",
-      path: "/Dashboard/AI",
+      path: "/Dashboard/InvestmentPlans",
       icon: <Landmark />,
       active: activeLink === 1,
     },

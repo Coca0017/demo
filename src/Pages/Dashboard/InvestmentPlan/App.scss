@@ -1,0 +1,120 @@
+@use "../../../Styles/colors" as *;
+@use "../../../Styles/fonts" as *;
+@use "../../../Styles/reuseable" as *;
+
+
+
+.card{
+    background: #fff;
+    width: fit-content;
+    padding: 1.5rem 1rem;
+    border-radius: .5rem;
+    border: 1px solid #e3e4e6;
+    text-align: center;
+
+    #planTtile{
+        color: #64748b;
+        font-size: .8rem;
+        @include Poppins(500, normal);
+    }
+
+    .planInfo{
+        margin-top: .8rem;
+        @include Poppins(600, normal);
+    }
+
+    ul{
+        margin-top: 1rem;
+        @include flex(column, .8rem, flex-start);
+        align-items: flex-start;
+        li{
+            @include Poppins(500, normal);
+            text-align: left;
+            list-style-type: none;
+        }
+    }
+
+    button{
+        margin-top: 1rem;
+        padding: .7rem 1.5rem;
+        color: $brandPrimary;
+        @include Poppins(500, normal);
+        background: transparent;
+        border: 1px solid $brandPrimary;
+        border-radius: .5rem;
+    }
+}
+
+
+.overviewWrapper{
+    padding: 1rem;
+
+    #pageId{
+        @include Poppins(500, normal);
+        font-size: 1.2rem;
+    }
+
+    .earningsDiv, .secondDiv{
+        width: 100%;
+        @include flex(row wrap, 1rem, center);
+        margin-top: 1rem;
+    }
+
+    .secondDiv{
+        margin-top: 2rem;
+    }
+
+    .marketingDiv{
+        margin-top: 3rem;
+
+        .marketingCard{
+            background: #fff;
+            width: fit-content;
+            padding: 1.5rem 1rem;
+           
+            border-radius: .5rem;
+            border: 1px solid #e3e4e6;
+
+            #head{
+                color: #64748b;
+                font-size: .9rem;
+                @include Poppins(500, normal);
+            }
+        
+            .body{
+                margin-top: .8rem;
+                @include Poppins(500, normal);
+            }
+
+            .linkCon{
+                @include flex(row, 1rem, flex-start);
+                background: #fff;
+                width: 90%;
+                padding: .7rem;
+                border-radius: .5rem;
+                border: 1px solid #e3e4e6;
+
+                h1{
+                    font-size: .7rem;
+                    @include Poppins(500, normal);
+                }
+
+                svg{
+                    height: .8rem;
+                }
+            }
+
+
+        }
+    }
+}
+
+@media  (max-width: 768px){
+
+    .card{
+        width: 100%;
+    }
+    .earningsDiv, .secondDiv{
+        @include flex(column, 1rem, flex-start);
+    }
+}

@@ -11,7 +11,9 @@ import App from './Pages/Home/App';
 import Login from './Pages/Auth/Login/App';
 import SignUp from './Pages/Auth/SignUp/App';
 import Reset from './Pages/Auth/PasswordReset/App';
+
 import Dashboard from './Pages/Dashboard/Dashboard/App.jsx';
+import InvestmentPlan from './Pages/Dashboard/InvestmentPlan/App.jsx';
 
 import {
   createBrowserRouter,
@@ -47,7 +49,14 @@ const router = createBrowserRouter([
   {
     path: "/Dashboard",
     element:  <Protected><Dashboard /></Protected>,
+  },
+
+  {
+    path: "/Dashboard/InvestmentPlans",
+    element:  <Protected><InvestmentPlan /></Protected>,
   }
+
+  
 
 
 ]);
