@@ -1,0 +1,52 @@
+@use "../../../Styles/colors" as *;
+@use "../../../Styles/fonts" as *;
+@use "../../../Styles/reuseable" as *;
+
+.overviewWrapper {
+  padding: 1rem;
+
+  #pageId {
+    @include Poppins(500, normal);
+    font-size: 1.2rem;
+  }
+
+  .withdrawalCon {
+    margin-top: 2rem;
+    @include flex(column, 0.5rem, center);
+    @include Poppins(500, normal);
+    width: 100%;
+
+    .withdrawDiv {
+      padding: 1rem 3rem;
+      @include flex(column, 0.5rem, center);
+      background-color: #fff;
+      width: fit-content;
+      border-radius: .5rem;
+
+      .withdrawalInputs {
+        @include flex(column, 0.5rem, center);
+
+        input {
+          @include Poppins(500, normal);
+          padding: .5rem 1rem;
+        }
+      }
+
+      button{
+        margin-top: 10px;
+        padding: 1rem 2rem;
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        @include Poppins(500, normal);
+
+
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+}

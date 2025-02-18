@@ -14,6 +14,8 @@ import Reset from './Pages/Auth/PasswordReset/App';
 
 import Dashboard from './Pages/Dashboard/Dashboard/App.jsx';
 import InvestmentPlan from './Pages/Dashboard/InvestmentPlan/App.jsx';
+import WithdrawFunds from './Pages/Dashboard/Withdraw/App.jsx';
+
 
 import {
   createBrowserRouter,
@@ -54,6 +56,11 @@ const router = createBrowserRouter([
   {
     path: "/Dashboard/InvestmentPlans",
     element:  <Protected><InvestmentPlan /></Protected>,
+  },
+
+  {
+    path: "/Dashboard/Withdraw",
+    element:  <Protected><WithdrawFunds /></Protected>,
   }
 
   

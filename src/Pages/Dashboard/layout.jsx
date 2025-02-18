@@ -60,15 +60,15 @@ function Layout({ children }) {
     },
     {
       name: "Withdraw Funds",
-      path: "/Dashboard/New-Upload",
+      path: "/Dashboard/Withdraw",
       icon: <Receipt />,
-      active: activeLink === 3,
+      active: activeLink === 2,
     },
     {
       name: "Transaction History",
       path: "/Dashboard/Edit-Profile",
       icon: <FileClock />,
-      active: activeLink === 4,
+      active: activeLink === 3,
     },
     {
       name: "Edit Profile",
