@@ -20,11 +20,14 @@ const collectionId = import.meta.env.VITE_USER_COLLECTION_ID;
 //db for withdrawal
 const withdrawalCollectionId = import.meta.env.VITE_WITHDRAWALS_COLLECTION_ID;
 
+//db for planUpgrade 
+const planCollection = import.meta.env.VITE_PLAN_COLLECTION_ID;
+
 //storage
 const storage = new Storage(client);
 const bucket = import.meta.env.VITE_STORAGE_BUCKET;
 
 
-export {client, account, databases, OAuthProvider, databaseId,withdrawalCollectionId, collectionId, storage, bucket, projectID, endPoint};
+export {client, account, databases, OAuthProvider, databaseId,withdrawalCollectionId, collectionId, planCollection, storage, bucket, projectID, endPoint};
 
 export { ID } from "appwrite";
