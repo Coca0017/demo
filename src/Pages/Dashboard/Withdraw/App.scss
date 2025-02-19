@@ -29,6 +29,9 @@
         input {
           @include Poppins(500, normal);
           padding: .5rem 1rem;
+          border-radius: .3rem;
+          outline: none;
+          border: 1px solid #e3e4e6;
         }
       }
 

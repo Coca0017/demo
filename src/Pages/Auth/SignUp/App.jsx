@@ -6,6 +6,7 @@ import "../App.scss";
 
 import { client, account, ID, databases, OAuthProvider, databaseId, collectionId} from "../../../utils/Appwrite/config"; 
 import { useAuth } from "../../../utils/authContex";
+import { Query } from "appwrite";
 
 
 
@@ -47,119 +48,91 @@ function Signup() {
       return emailRegex.test(email);
     };
 
-  const handleSignUp = async (e) => {
-    e.preventDefault(); // Prevent form submission
-
-     // Validation logic
-     if (!registerEmail || !registerPassword || !registerUsername) {
-      toast.dismiss();
-      toast.error("All fields are required.");
-      return;
-    }
-
-    if (!validateEmail(registerEmail)) {
-      toast.dismiss();
-      toast.error("Please enter a valid email.");
-      return;
-    }
-
-    if (registerPassword.length < 6) {
-      toast.dismiss();
-      toast.error("Password must be at least 6 characters.");
-      return;
-    }
-
-    if (isRegistering) return;
+    const handleSignUp = async (e) => {
+      e.preventDefault();
     
-
-    toast.dismiss();
-    setIsRegistering(true);
-    toast.dismiss();
-    toast.info(`Creating Account! Please wait...`);
-
-    try {
-      const userCred = await account.create(
-        ID.unique(),
-        registerEmail,
-        registerPassword,
-        registerUsername
-      );
-
-      const userId = userCred.$id;
-
-      await databases.createDocument(
-        databaseId,
-        collectionId, 
-        userId, 
-        {
-            Username: registerUsername,
-            Email: registerEmail,
-            Date_Joined: new Date().toISOString(),
-            Password: registerPassword,
-            TotalEarnings: 0,
-            DailyEarnings: 0,
-            WithdrawalLimit: 0,
-            TotalReferrals: 0,
-            ReferredBy: refCode
-        }
-    );
-
-
-       // Authenticate the user to avoid verification email error
-      await login(registerEmail, registerPassword);
-   
-
-      try {
-        //for development
-       
-        await account.createVerification('http://localhost:5173/Dashboard');
-       
-        //for production
-        //await account.createVerification('https://edufied.online/Verify-email');
+      if (!registerEmail || !registerPassword || !registerUsername) {
         toast.dismiss();
-        toast.success("Account created successfully! Please wait..");
-       /** setTimeout(() => {
-          navigate(`/CheckMail?userEmail=${registerEmail}`); 
-        }, 2400); */
-      } catch (error) {
-        console.log(error);
-        toast.error("Failed to send verification email. Please try again later.");
+        toast.error("All fields are required.");
+        return;
       }
-      
-
-
-      
-
-    } catch (error) {
-      if (error.code === 400) {
+    
+      if (!validateEmail(registerEmail)) {
         toast.dismiss();
-        toast.error("Bad Request: The server could not understand the request.");
-      } else if (error.code === 401) {
+        toast.error("Please enter a valid email.");
+        return;
+      }
+    
+      if (registerPassword.length < 6) {
         toast.dismiss();
-        toast.error("Unauthorized: Incorrect email or password.");
-      } else if (error.code === 403) {
+        toast.error("Password must be at least 6 characters.");
+        return;
+      }
+    
+      if (isRegistering) return;
+    
+      toast.dismiss();
+      setIsRegistering(true);
+      toast.info("Creating Account! Please wait...");
+    
+      try {
+        // Create the user
+        const userCred = await account.create(ID.unique(), registerEmail, registerPassword, registerUsername);
+        const userId = userCred.$id;
+    
+        // Initialize user document data
+        let userData = {
+          Username: registerUsername,
+          Email: registerEmail,
+          Date_Joined: new Date().toISOString(),
+          Password: registerPassword,
+          TotalEarnings: 0,
+          DailyEarnings: 0,
+          WithdrawalLimit: 0,
+          TotalReferrals: 0,
+          Referral_Earnings: 0,
+          ReferredBy: refCode || null,
+        };
+    
+        // If a referral code (email) is provided, find the referrer
+        if (refCode) {
+          const referrerQuery = await databases.listDocuments(databaseId, collectionId, [
+            Query.equal("Email", refCode)
+          ]);
+    
+          if (referrerQuery.documents.length > 0) {
+            const referrer = referrerQuery.documents[0];
+            const referrerId = referrer.$id;
+    
+            // Update referrer's earnings and referral count
+            await databases.updateDocument(databaseId, collectionId, referrerId, {
+              Referral_Earnings: referrer.Referral_Earnings + 10,
+              TotalReferrals: referrer.TotalReferrals + 1,
+            });
+    
+            userData.ReferredBy = referrer.Email; // Store the referrer’s email
+          }
+        }
+    
+        // Create user document in the database
+        await databases.createDocument(databaseId, collectionId, userId, userData);
+    
+        // Authenticate user
+        await login(registerEmail, registerPassword);
+    
+        // Send verification email
+        await account.createVerification("http://localhost:5173/Dashboard");
         toast.dismiss();
-        toast.error("Forbidden: You do not have permission to access this resource.");
-      } else if (error.code === 404) {
-        toast.dismiss();
-        toast.error("Not Found: The requested resource could not be found.");
-        console.log(error);
-      } else if (error.code === 409) {
-        toast.dismiss();
-        toast.error("Conflict: The email is already registered.");
-      } else if (error.code === 429) {
-        toast.dismiss();
-        toast.error("Rate Limit Exceeded: Please try again after some time.");
-      } else {
+        toast.success("Account created successfully! Please wait...");
+      } catch (error) {
+        console.error(error);
         toast.dismiss();
         toast.error("Error: An unexpected network error occurred");
-        console.log(error);
+      } finally {
+        setIsRegistering(false);
       }
-    } finally {
-      // Reset registering state to false after execution
-      setIsRegistering(false);
-    }
-  };
+    };
+    
 
   return (
     <>

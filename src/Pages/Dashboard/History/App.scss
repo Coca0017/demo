@@ -1,0 +1,23 @@
+@use "../../../Styles/colors" as *;
+@use "../../../Styles/fonts" as *;
+@use "../../../Styles/reuseable" as *;
+
+
+
+
+
+
+.overviewWrapper{
+    padding: 1rem;
+
+    #pageId{
+        @include Poppins(500, normal);
+        font-size: 1.2rem;
+    }
+
+}
+
+@media  (max-width: 768px){
+
+
+}

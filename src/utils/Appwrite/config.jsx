@@ -17,7 +17,7 @@ const databaseId = import.meta.env.VITE_DATABASE_ID;
 //userdbInfo
 const collectionId = import.meta.env.VITE_USER_COLLECTION_ID;
 
-//db for files
+//db for withdrawal
 const withdrawalCollectionId = import.meta.env.VITE_WITHDRAWALS_COLLECTION_ID;
 
 //storage

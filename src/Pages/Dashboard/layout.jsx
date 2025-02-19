@@ -66,7 +66,7 @@ function Layout({ children }) {
     },
     {
       name: "Transaction History",
-      path: "/Dashboard/Edit-Profile",
+      path: "/Dashboard/History",
       icon: <FileClock />,
       active: activeLink === 3,
     },
