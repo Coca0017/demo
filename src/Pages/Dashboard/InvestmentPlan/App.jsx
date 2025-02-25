@@ -84,6 +84,12 @@ function App() {
                 <div className="popup-box" onClick={(e) => e.stopPropagation()}>
                   <h2>Send Details for Verification</h2>
 
+                  <div className="paymentInfo">
+                    <span>Phone Number: 0535471127 </span>
+                    <span>Network: MTN</span>
+                    <span>Holders Name: Thomas Awuah</span> 
+                  </div>
+
                   <div className="inputWrapper">
                     <span>Phone Number:</span>
                     <input type="number" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} placeholder="Mobile Money Number" />

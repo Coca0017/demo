@@ -66,7 +66,7 @@ function App() {
               <h2 id="head">Referral Program</h2>
               <p className="body">Invite A Friend To Earn A Commission</p>
               <div className="linkCon">
-                <h1>https://www.coca-cola.com/?ref="Lucid"</h1>
+                <h1>https://www.coca-cola.com/Register?ref=example@email.com</h1>
                 <Copy />
               </div>
             </div>
