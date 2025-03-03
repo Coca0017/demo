@@ -94,4 +94,12 @@
     .earningsDiv, .secondDiv{
         @include flex(column, 1rem, flex-start);
     }
+    
+    
+       .marketingDiv{   
+        width: 100%; 
+            .marketingCard{
+                width: 100%;
+            }
+        }
 }
