@@ -109,6 +109,7 @@ function Signup() {
         TotalReferrals: 0,
         Referral_Earnings: 0,
         ReferredBy: referredBy || null,
+        Investment_Plan: "None"
       };
 
       // If a referral code (email) is provided, find the referrer
@@ -144,8 +145,7 @@ function Signup() {
       // Authenticate user
       await login(registerEmail, registerPassword);
 
-      // Send verification email
-      await account.createVerification("http://localhost:5173/Dashboard");
+  
       toast.dismiss();
       toast.success("Account created successfully! Please wait...");
     } catch (error) {

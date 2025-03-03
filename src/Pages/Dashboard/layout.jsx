@@ -72,7 +72,7 @@ function Layout({ children }) {
     },
     {
       name: "Edit Profile",
-      path: "/Dashboard/Edit-Profile",
+      path: "/Dashboard",
       icon: <CircleUser />,
       active: activeLink === 4,
     },
