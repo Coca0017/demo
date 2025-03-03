@@ -8,7 +8,7 @@ function App() {
       <div className="pageDiv">
         <div className="overlay">
           <div className="headText">
-            <h1>An Investment That Pays The Best Interest</h1>
+            <h1>An Investment That Pays The Best Funds</h1>
 
             <button>
               <Link to={"/Register"}>Get Started</Link>
