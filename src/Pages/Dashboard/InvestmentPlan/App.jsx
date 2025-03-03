@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "../Layout";
+import Layout from "../layout";
 
 import { client, account, ID, databases, databaseId, planCollection, bucket, storage, projectID} from "../../../utils/Appwrite/config"; 
 
