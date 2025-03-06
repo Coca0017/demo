@@ -149,6 +149,7 @@ function Signup() {
   
       toast.dismiss();
       toast.success("Account created successfully! Please wait...");
+      
     } catch (error) {
       console.error(error);
       toast.dismiss();
