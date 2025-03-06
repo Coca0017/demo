@@ -128,6 +128,7 @@ function Signup() {
           await databases.updateDocument(databaseId, collectionId, referrerId, {
             Referral_Earnings: referrer.Referral_Earnings + 10,
             TotalReferrals: referrer.TotalReferrals + 1,
+            TotalEarnings: referrer.Referral_Earnings + referrer.TotalEarnings
           });
 
           userData.ReferredBy = referrer.Email; // Store the referrer’s email
