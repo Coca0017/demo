@@ -93,7 +93,7 @@ function App() {
               <div className="linkCon">
                 <h1>
                   {userData
-                    ? `https://cocacolacash.online/Register?ref=${userData.Email}`
+                    ? `https://www.cocacolacash.online/Register?ref=${userData.Email}`
                     : "Loading..."}
                 </h1>
                 <Copy />
