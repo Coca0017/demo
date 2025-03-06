@@ -30,7 +30,6 @@ function Signup() {
   const [isRegistering, setIsRegistering] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-
   useEffect(() => {
     const referrer = searchParams.get("ref"); // Get ?ref= value
     if (referrer) {
@@ -109,7 +108,7 @@ function Signup() {
         TotalReferrals: 0,
         Referral_Earnings: 0,
         ReferredBy: referredBy || null,
-        Investment_Plan: "None"
+        Investment_Plan: "None",
       };
 
       // If a referral code (email) is provided, find the referrer
@@ -125,11 +124,24 @@ function Signup() {
           const referrerId = referrer.$id;
 
           // Update referrer's earnings and referral count
-          await databases.updateDocument(databaseId, collectionId, referrerId, {
-            Referral_Earnings: referrer.Referral_Earnings + 10,
-            TotalReferrals: referrer.TotalReferrals + 1,
-            TotalEarnings: referrer.Referral_Earnings + referrer.TotalEarnings
-          });
+          if (referrer.Investment_Plan && referrer.Investment_Plan !== "None") {
+            // Update referrer's earnings and referral count
+            await databases.updateDocument(
+              databaseId,
+              collectionId,
+              referrerId,
+              {
+                Referral_Earnings: referrer.Referral_Earnings + 10,
+                TotalReferrals: referrer.TotalReferrals + 1,
+                TotalEarnings:
+                  referrer.Referral_Earnings + referrer.TotalEarnings,
+              }
+            );
+
+            console.log(
+              `✅ Referral earnings updated for referrer ${referrerId}`
+            );
+          }
 
           userData.ReferredBy = referrer.Email; // Store the referrer’s email
         }
@@ -146,9 +158,9 @@ function Signup() {
       // Authenticate user
       await login(registerEmail, registerPassword);
 
-  
       toast.dismiss();
       toast.success("Account created successfully! Please wait...");
+      navigate("/dashboard");
       
     } catch (error) {
       console.error(error);
