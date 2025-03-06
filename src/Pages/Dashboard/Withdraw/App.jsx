@@ -38,7 +38,7 @@ function App() {
         <ToastContainer />
 
         <div className="overviewWrapper">
-          <span id="pageId">Withdraw Funds</span>
+        {/**   <span id="pageId">Withdraw Funds</span>
 
          <div className="withdrawalCon">
          <div className="withdrawDiv">
@@ -51,9 +51,13 @@ function App() {
               <input type="number" placeholder="Amount" />
             </div>
 
-            <button>Withdraw</button>
+            <button>Withdraw</button>}
           </div>
-         </div>
+         </div>  **/}
+
+         <h1>
+          Withdrawal Has Been Disabled Try Again On Weekends(Saturday's And Sundays)
+         </h1>
         </div>
       </Layout>
     </>
