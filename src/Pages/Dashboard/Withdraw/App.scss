@@ -47,8 +47,12 @@
 
 
       }
+
+      
     }
   }
+
+  h1{@include Poppins(500, normal)};
 }
 
 @media (max-width: 768px) {
