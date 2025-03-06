@@ -93,7 +93,7 @@ function App() {
               <div className="linkCon">
                 <h1>
                   {userData
-                    ? `https://coca-cola-gules.vercel.app/Register?ref=${userData.Email}`
+                    ? `https://cocacolacash.online/Register?ref=${userData.Email}`
                     : "Loading..."}
                 </h1>
                 <Copy />

@@ -52,7 +52,7 @@ function App() {
       const file = await storage.createFile(bucket, ID.unique(), formData.screenshot);
       const fileUrl = `https://cloud.appwrite.io/v1/storage/buckets/${bucket}/files/${file.$id}/view?project=${projectID}`;
 
-      // Save Data to Appwrite Database
+      // Save Data to Appwrite Database  
       await databases.createDocument(databaseId, planCollection, ID.unique(), {
         Phone_Number: parseInt(formData.phoneNumber),
         Reference_Id: formData.referenceId,
